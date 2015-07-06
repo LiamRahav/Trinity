@@ -2,7 +2,6 @@
 import Foundation
 
 class Trinity: Robot {
-  
   var lastKnownEnemyPosition = CGPoint(x: 0, y: 0)
   var lastKnownEnemyTimestamp = CGFloat(0.0)
   var enemyPositions = [CGFloat: CGFloat]()
@@ -40,26 +39,36 @@ class Trinity: Robot {
       var enemyNextPositionGuess = CGPoint(x: xAverage, y: yAverage)
      // var averageVector = CGPoint(x:lastKnownEnemyPosition.x - enemyNextPositionGuess.x, y: lastKnownEnemyPosition.y - enemyNextPositionGuess.y)
     var averageVector = CGPoint(x: 6.7 - 7.4, y: 4.2 - 5.0)
-      println("\nAVERAGE VECTOR: \(averageVector)\n")
-    
-    println("\nXAver \(xAverage) \n")
-    println("\nYAver \(yAverage) \n)")
-    println("\n lastKnown X: \(lastKnownEnemyPosition.x) \n")
     
 
       }
   
   override func scannedRobot(robot: Robot!, atPosition position: CGPoint) {
     enemyPositions[position.x] = position.y
-
-    lastKnownEnemyPosition = position
     
-    turnRobotLeft(abs(Int(angleBetweenGunHeadingDirectionAndWorldPosition(position))))
-    turnGunLeft(abs(Int(angleBetweenGunHeadingDirectionAndWorldPosition(position))))
+    lastKnownEnemyPosition = position
+    let angleToObstacle: Int = Int(angleBetweenHeadingDirectionAndWorldPosition(position))
+    
+    if angleToObstacle <= 0 {
+      turnRobotLeft(abs(angleToObstacle))
+      turnGunLeft(abs(angleToObstacle))
+    } else {
+      turnRobotRight(abs(angleToObstacle))
+      turnGunRight(abs(angleToObstacle))
+    }
+    
+   
+    
   }
   
   override func hitWall(hitDirection: RobotWallHitDirection, hitAngle: CGFloat) {
-    turnRobotLeft(Int(abs(hitAngle)))
-    turnGunLeft(Int(abs(hitAngle))/2)
+    if hitAngle >= 0 {
+      turnRobotLeft(Int(abs(hitAngle)))
+    } else {
+      turnRobotRight(Int(abs(hitAngle)))
+    }
+    
+    // leave wall
+    moveAhead(20)
   }
 }

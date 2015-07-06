@@ -117,6 +117,8 @@ class TrinityCopy: Robot {
     
     // reset to old state
     currentRobotState = previousState
+    
+   
   }
   
   override func bulletHitEnemy(bullet: Bullet!) {
