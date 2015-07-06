@@ -1,17 +1,76 @@
 
 import Foundation
 
+
+
 class Trinity: Robot {
-  var lastKnownEnemyPosition = CGPoint(x: 0, y: 0)
+    var lastKnownEnemyPosition = CGPoint(x: 0, y: 0){
+        didSet
+        {
+            
+        }
+    }
   var lastKnownEnemyTimestamp = CGFloat(0.0)
   var enemyPositions = [CGFloat: CGFloat]()
-  var state = State.Searching
+    var isCorrect = false
+    
+    var state = State.Searching
   
   enum State {
     case Searching, Detected, Firing, Chasing
   }
+    
+    
   
   override func run() {
+    let ScreenSize = arenaDimensions()
+    let correctHeight = ScreenSize.height/2
+    
+    println(correctHeight)
+   while isCorrect == false /* + 10 || position().y != correctHeight - 10 */ {
+    
+        if position().y < correctHeight {
+            // Move up
+            
+            if position().y > correctHeight {
+                turnRobotLeft(90)
+                moveAhead(40)
+                turnRobotRight(90)
+            
+            }
+            else {
+                turnRobotRight(90)
+                moveAhead(20)
+                turnRobotLeft(90)
+            }
+            
+            if position().y == correctHeight
+            {
+            break
+            }
+            
+        } else if position().y > correctHeight {
+            // Move down
+            if position().y < correctHeight {
+                turnRobotRight(90)
+                moveAhead(40)
+                turnRobotLeft(90)
+                
+            }
+            else {
+                turnRobotLeft(90)
+                moveAhead(20)
+                turnRobotRight(90)
+            }
+            if position().y == correctHeight
+            {
+                break
+            }
+
+       }
+    }
+    
+    
     while true {
       switch state {
         case .Searching:
@@ -72,3 +131,4 @@ class Trinity: Robot {
     moveAhead(20)
   }
 }
+
