@@ -44,10 +44,10 @@
 		B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
 		BC0F77681B45AD1E0043EEA4 /* SimpleRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F77671B45AD1E0043EEA4 /* SimpleRobot.swift */; };
 		BC2FCAF81B45C6FC00A7837D /* TurretRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCAF71B45C6FC00A7837D /* TurretRobot.swift */; };
-		BC2FCAFB1B45EB8B00A7837D /* AdvancedRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCAFA1B45EB8B00A7837D /* AdvancedRobot.swift */; };
 		BC2FCAFD1B45F42000A7837D /* CamperRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCAFC1B45F42000A7837D /* CamperRobot.swift */; };
 		BCA5F346195BD4DA00F1A2DF /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA5F345195BD4DA00F1A2DF /* GLKit.framework */; };
 		FA36EDF71B4AC04D00D1C1BF /* Trinity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36EDF61B4AC04D00D1C1BF /* Trinity.swift */; };
+		FAE1AD841B4AD6A400349E8A /* AdvancedRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE1AD831B4AD6A400349E8A /* AdvancedRobot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,10 +155,10 @@
 		BC0F77661B45AD1D0043EEA4 /* RobotWar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "RobotWar-Bridging-Header.h"; path = "Source/Robot/RobotWar-Bridging-Header.h"; sourceTree = "<group>"; };
 		BC0F77671B45AD1E0043EEA4 /* SimpleRobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleRobot.swift; sourceTree = "<group>"; };
 		BC2FCAF71B45C6FC00A7837D /* TurretRobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurretRobot.swift; sourceTree = "<group>"; };
-		BC2FCAFA1B45EB8B00A7837D /* AdvancedRobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedRobot.swift; sourceTree = "<group>"; };
 		BC2FCAFC1B45F42000A7837D /* CamperRobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CamperRobot.swift; sourceTree = "<group>"; };
 		BCA5F345195BD4DA00F1A2DF /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		FA36EDF61B4AC04D00D1C1BF /* Trinity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trinity.swift; sourceTree = "<group>"; };
+		FAE1AD831B4AD6A400349E8A /* AdvancedRobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedRobot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,7 +216,7 @@
 				BC2FCAF71B45C6FC00A7837D /* TurretRobot.swift */,
 				BC0F77671B45AD1E0043EEA4 /* SimpleRobot.swift */,
 				BC2FCAFC1B45F42000A7837D /* CamperRobot.swift */,
-				BC2FCAFA1B45EB8B00A7837D /* AdvancedRobot.swift */,
+				FAE1AD831B4AD6A400349E8A /* AdvancedRobot.swift */,
 			);
 			name = Robots;
 			path = Source/Robot;
@@ -462,6 +462,7 @@
 				BC2FCAFD1B45F42000A7837D /* CamperRobot.swift in Sources */,
 				6244629A1937DDD300895F2D /* Robot.m in Sources */,
 				FA36EDF71B4AC04D00D1C1BF /* Trinity.swift in Sources */,
+				FAE1AD841B4AD6A400349E8A /* AdvancedRobot.swift in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
@@ -471,7 +472,6 @@
 				BC2FCAF81B45C6FC00A7837D /* TurretRobot.swift in Sources */,
 				62E3A330193D3F3B00BD3F0F /* Bullet.m in Sources */,
 				BC0F77681B45AD1E0043EEA4 /* SimpleRobot.swift in Sources */,
-				BC2FCAFB1B45EB8B00A7837D /* AdvancedRobot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
