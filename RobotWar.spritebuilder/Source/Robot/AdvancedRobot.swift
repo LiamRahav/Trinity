@@ -85,6 +85,7 @@ class AdvancedRobot: Robot {
   }
   
   override func scannedRobot(robot: Robot!, atPosition position: CGPoint) {
+    
     if currentRobotState != .Firing {
       cancelActiveAction()
     }

@@ -2,27 +2,31 @@
 import Foundation
 
 class Trinity: Robot {
-    var lastKnownEnemyPosition = CGPoint(x: 0, y: 0)
-
-    var lastKnownEnemyTimestamp = CGFloat(0.0)
-    var enemyPositions = [CGFloat: CGFloat]()
-    var isCorrect = false
-    
-    var state = State.Searching
-  
-    enum State {
-      case Searching, Detected, Firing, Chasing
-    }
-    
-    
   
   override func run() {
-    // MOVE TO MIDDLE ON START
-
-    let middleOfArena = arenaDimensions().height / 2
-    var currentRobotHeight = position().y
+    let middleHeightOfArena = arenaDimensions().height / 2
     let accuracy: CGFloat = 10
+    var currentRobotHeight = position().y
     
+    // MOVE TO MIDDLE ON START
+    moveToMiddle(middleHeightOfArena, accuracy: accuracy, currentRobotHeight: currentRobotHeight)
+    let middleWidthOfArena = arenaDimensions().width
+    let sideOfRobot = position().x
+    
+    // LOOP AFTER REACHING MIDDLE
+    while true {
+      moveAhead(Int(middleWidthOfArena - 90))
+      turnRobotRight(Int(abs(angleBetweenHeadingDirectionAndWorldPosition(CGPoint(x: middleWidthOfArena, y: middleHeightOfArena)))))
+      moveAhead(Int(middleWidthOfArena - 90))
+      turnRobotLeft(Int(abs(angleBetweenHeadingDirectionAndWorldPosition(CGPoint(x: middleWidthOfArena, y: middleHeightOfArena)))))
+      if position().y < middleHeightOfArena - 10 || position().y > middleHeightOfArena + 10{
+        moveToMiddle(middleHeightOfArena, accuracy: accuracy, currentRobotHeight: position().y)
+      }
+      }
+  }
+  
+  func moveToMiddle(middleOfArena: CGFloat, accuracy: CGFloat, currentRobotHeight: CGFloat ) {
+    var currentRobotHeight = currentRobotHeight
     // Runs if robot starts above the middle
     if currentRobotHeight > (middleOfArena + accuracy) {
       // Turn Trinity so it faces straight down
@@ -37,9 +41,9 @@ class Trinity: Robot {
       turnGunRight(45)
       turnRobotRight(90)
     }
-    
-    // Runs if robot start below the middle
-    if currentRobotHeight < (middleOfArena - accuracy) {
+      
+      // Runs if robot start below the middle
+    else if currentRobotHeight < (middleOfArena - accuracy) {
       // Turn Trinity so it faces straight up
       turnGunRight(45)
       turnRobotRight(90)
@@ -52,33 +56,35 @@ class Trinity: Robot {
       turnGunLeft(45)
       turnRobotLeft(90)
     }
-    
-    let x = 5
-    let middleWidthOfArena = arenaDimensions().width
-    let sideOfRobot = position().x
-    
-    // LOOP AFTER REACHING MIDDLE
-    while true {
-      moveAhead(Int(middleWidthOfArena - 90))
-      turnRobotRight(180)
-      moveAhead(Int(middleWidthOfArena - 90))
-      turnRobotLeft(180)
-      }
+
   }
   
   override func scannedRobot(robot: Robot!, atPosition position: CGPoint) {
+    
+    println("position = \(position)")
     cancelActiveAction()
-    let angleToEneny = angleBetweenGunHeadingDirectionAndWorldPosition(position)
-    if angleToEneny < 0 {
-      turnGunLeft(abs(Int(angleToEneny)))
+    let angleToEnemy = angleBetweenGunHeadingDirectionAndWorldPosition(position)
+    if angleToEnemy < 0 {
+      turnGunLeft(abs(Int(angleToEnemy)))
     } else {
-      turnGunRight(Int(angleToEneny))
+      turnGunRight(Int(angleToEnemy))
     }
     shoot()
   }
   
   override func gotHit() {
     // Add stuff here
+  }
+  
+  override func hitWall(hitDirection: RobotWallHitDirection, hitAngle: CGFloat) {
+    cancelActiveAction()
+    if hitAngle >= 0 {
+      turnRobotLeft(Int(abs(hitAngle)))
+    } else {
+      turnRobotRight(Int(abs(hitAngle)))
+    }
+    
+    moveAhead(20)
   }
   
 }
