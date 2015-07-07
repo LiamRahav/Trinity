@@ -59,11 +59,26 @@ class Trinity: Robot {
     
     // LOOP AFTER REACHING MIDDLE
     while true {
-        moveAhead(Int(middleWidthOfArena - 90))
-        turnRobotRight(180)
-        moveAhead(Int(middleWidthOfArena - 90))
-        turnRobotLeft(180)
-        }
+      moveAhead(Int(middleWidthOfArena - 90))
+      turnRobotRight(180)
+      moveAhead(Int(middleWidthOfArena - 90))
+      turnRobotLeft(180)
+      }
+  }
+  
+  override func scannedRobot(robot: Robot!, atPosition position: CGPoint) {
+    cancelActiveAction()
+    let angleToEneny = angleBetweenGunHeadingDirectionAndWorldPosition(position)
+    if angleToEneny < 0 {
+      turnGunLeft(abs(Int(angleToEneny)))
+    } else {
+      turnGunRight(Int(angleToEneny))
+    }
+    shoot()
+  }
+  
+  override func gotHit() {
+    // Add stuff here
   }
   
 }

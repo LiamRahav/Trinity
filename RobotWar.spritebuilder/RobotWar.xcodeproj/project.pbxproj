@@ -48,7 +48,6 @@
 		BCA5F346195BD4DA00F1A2DF /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA5F345195BD4DA00F1A2DF /* GLKit.framework */; };
 		FA36EDF71B4AC04D00D1C1BF /* Trinity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36EDF61B4AC04D00D1C1BF /* Trinity.swift */; };
 		FAE1AD841B4AD6A400349E8A /* AdvancedRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE1AD831B4AD6A400349E8A /* AdvancedRobot.swift */; };
-		FAE1AD861B4B045E00349E8A /* TrinityCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE1AD851B4B045E00349E8A /* TrinityCopy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,7 +159,6 @@
 		BCA5F345195BD4DA00F1A2DF /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		FA36EDF61B4AC04D00D1C1BF /* Trinity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trinity.swift; sourceTree = "<group>"; };
 		FAE1AD831B4AD6A400349E8A /* AdvancedRobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedRobot.swift; sourceTree = "<group>"; };
-		FAE1AD851B4B045E00349E8A /* TrinityCopy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrinityCopy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				FA36EDF61B4AC04D00D1C1BF /* Trinity.swift */,
-				FAE1AD851B4B045E00349E8A /* TrinityCopy.swift */,
 				BC2FCAF71B45C6FC00A7837D /* TurretRobot.swift */,
 				BC0F77671B45AD1E0043EEA4 /* SimpleRobot.swift */,
 				BC2FCAFC1B45F42000A7837D /* CamperRobot.swift */,
@@ -470,7 +467,6 @@
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				62C4F430194141DE0047553C /* Helpers.m in Sources */,
-				FAE1AD861B4B045E00349E8A /* TrinityCopy.swift in Sources */,
 				65EC9A5F19691E9A002F9DB2 /* TournamentScene.m in Sources */,
 				62E3A32419397BE400BD3F0F /* RobotAction.m in Sources */,
 				BC2FCAF81B45C6FC00A7837D /* TurretRobot.swift in Sources */,
