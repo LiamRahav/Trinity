@@ -18,6 +18,7 @@ class Trinity: Robot {
   
   override func run() {
     // MOVE TO MIDDLE ON START
+
     let middleOfArena = arenaDimensions().height / 2
     var currentRobotHeight = position().y
     let accuracy: CGFloat = 10
@@ -53,8 +54,23 @@ class Trinity: Robot {
       
     }
     
+    let x = 5
+    let middleWidthOfArena = arenaDimensions().width
+    let sideOfRobot = position().x
+    
+    
+        
+    
+    
+    
+    
+    
     // LOOP AFTER REACHING MIDDLE
     while true {
+        moveAhead(Int(middleWidthOfArena - 90))
+        turnRobotRight(180)
+        moveAhead(Int(middleWidthOfArena - 90))
+        turnRobotLeft(180)
       switch state {
         case .Searching:
           search()
@@ -92,26 +108,26 @@ class Trinity: Robot {
     let angleToObstacle: Int = Int(angleBetweenHeadingDirectionAndWorldPosition(position))
     
     if angleToObstacle <= 0 {
-      turnRobotLeft(abs(angleToObstacle))
+//      turnRobotLeft(abs(angleToObstacle))
       turnGunLeft(abs(angleToObstacle))
     } else {
-      turnRobotRight(abs(angleToObstacle))
+//      turnRobotRight(abs(angleToObstacle))
       turnGunRight(abs(angleToObstacle))
     }
     
-   
     
   }
   
-  override func hitWall(hitDirection: RobotWallHitDirection, hitAngle: CGFloat) {
-    if hitAngle >= 0 {
-      turnRobotLeft(Int(abs(hitAngle)))
-    } else {
-      turnRobotRight(Int(abs(hitAngle)))
-    }
-    
-    // leave wall
-    moveAhead(20)
-  }
+//  override func hitWall(hitDirection: RobotWallHitDirection, hitAngle: CGFloat) {
+//    if hitAngle >= 0 {
+//      turnRobotLeft(Int(abs(hitAngle)))
+//    } else {
+//      turnRobotRight(Int(abs(hitAngle)))
+//    }
+//    
+//    // leave wall
+//    moveAhead(20)
+//  }
 }
 
+//
