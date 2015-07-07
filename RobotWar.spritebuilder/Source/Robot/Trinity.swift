@@ -15,13 +15,10 @@ class Trinity: Robot {
     
     // LOOP AFTER REACHING MIDDLE
     while true {
-      moveAhead(Int(middleWidthOfArena - 90))
-      turnRobotRight(Int(abs(angleBetweenHeadingDirectionAndWorldPosition(CGPoint(x: middleWidthOfArena, y: middleHeightOfArena)))))
-      moveAhead(Int(middleWidthOfArena - 90))
-      turnRobotLeft(Int(abs(angleBetweenHeadingDirectionAndWorldPosition(CGPoint(x: middleWidthOfArena, y: middleHeightOfArena)))))
-      if position().y < middleHeightOfArena - 10 || position().y > middleHeightOfArena + 10{
-        moveToMiddle(middleHeightOfArena, accuracy: accuracy, currentRobotHeight: position().y)
-      }
+        moveAhead(Int(middleWidthOfArena - 90))
+        turnRobotRight(180)
+        moveAhead(Int(middleWidthOfArena - 90))
+        turnRobotLeft(180)
       }
   }
   
@@ -76,15 +73,5 @@ class Trinity: Robot {
     // Add stuff here
   }
   
-  override func hitWall(hitDirection: RobotWallHitDirection, hitAngle: CGFloat) {
-    cancelActiveAction()
-    if hitAngle >= 0 {
-      turnRobotLeft(Int(abs(hitAngle)))
-    } else {
-      turnRobotRight(Int(abs(hitAngle)))
-    }
-    
-    moveAhead(20)
-  }
-  
+   
 }
