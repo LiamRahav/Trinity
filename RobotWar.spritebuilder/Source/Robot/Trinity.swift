@@ -16,10 +16,12 @@ class Trinity: Robot {
     // LOOP AFTER REACHING MIDDLE
     while true {
         moveAhead(Int(middleWidthOfArena - 90))
-        turnRobotRight(180)
+        turnRobotRight(Int(abs(angleBetweenHeadingDirectionAndWorldPosition(CGPoint(x: middleWidthOfArena, y: middleHeightOfArena)))))
         moveAhead(Int(middleWidthOfArena - 90))
-        turnRobotLeft(180)
-      }
+        turnRobotLeft(Int(abs(angleBetweenHeadingDirectionAndWorldPosition(CGPoint(x: middleWidthOfArena, y: middleHeightOfArena)))))
+        if position().y < middleHeightOfArena - 10 || position().y > middleHeightOfArena + 10{
+            moveToMiddle(middleHeightOfArena, accuracy: accuracy, currentRobotHeight: position().y)
+        }      }
   }
   
   func moveToMiddle(middleOfArena: CGFloat, accuracy: CGFloat, currentRobotHeight: CGFloat ) {
