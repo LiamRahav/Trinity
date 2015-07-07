@@ -4,15 +4,15 @@ import Foundation
 class Trinity: Robot {
     var lastKnownEnemyPosition = CGPoint(x: 0, y: 0)
 
-  var lastKnownEnemyTimestamp = CGFloat(0.0)
-  var enemyPositions = [CGFloat: CGFloat]()
+    var lastKnownEnemyTimestamp = CGFloat(0.0)
+    var enemyPositions = [CGFloat: CGFloat]()
     var isCorrect = false
     
     var state = State.Searching
   
-  enum State {
-    case Searching, Detected, Firing, Chasing
-  }
+    enum State {
+      case Searching, Detected, Firing, Chasing
+    }
     
     
   
