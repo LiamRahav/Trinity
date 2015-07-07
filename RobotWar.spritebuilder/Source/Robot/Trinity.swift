@@ -51,19 +51,11 @@ class Trinity: Robot {
       // Turn Trinity back so it faces the middle
       turnGunLeft(45)
       turnRobotLeft(90)
-      
     }
     
     let x = 5
     let middleWidthOfArena = arenaDimensions().width
     let sideOfRobot = position().x
-    
-    
-        
-    
-    
-    
-    
     
     // LOOP AFTER REACHING MIDDLE
     while true {
@@ -71,65 +63,7 @@ class Trinity: Robot {
         turnRobotRight(180)
         moveAhead(Int(middleWidthOfArena - 90))
         turnRobotLeft(180)
-      switch state {
-        case .Searching:
-          search()
-        case .Detected:
-          println("Detected")
-        case .Firing:
-          println("Firing")
-        case .Chasing:
-          println("Chasing")
-      }
-    }
+        }
   }
   
-  func search() {
-    
-    
-//    if enemyPositions != nil {
-      var xAverage: CGFloat = 0
-      var yAverage: CGFloat = 0
-      for (x, y) in enemyPositions {
-        xAverage += x
-        yAverage += y
-      }
-      xAverage /= CGFloat(enemyPositions.count)
-      yAverage /= CGFloat(enemyPositions.count)
-      var enemyNextPositionGuess = CGPoint(x: xAverage, y: yAverage)
-     // var averageVector = CGPoint(x:lastKnownEnemyPosition.x - enemyNextPositionGuess.x, y: lastKnownEnemyPosition.y - enemyNextPositionGuess.y)
-    var averageVector = CGPoint(x: 6.7 - 7.4, y: 4.2 - 5.0)
-    
-
-      }
-  
-  override func scannedRobot(robot: Robot!, atPosition position: CGPoint) {
-    enemyPositions[position.x] = position.y
-    
-    lastKnownEnemyPosition = position
-    let angleToObstacle: Int = Int(angleBetweenHeadingDirectionAndWorldPosition(position))
-    
-    if angleToObstacle <= 0 {
-//      turnRobotLeft(abs(angleToObstacle))
-      turnGunLeft(abs(angleToObstacle))
-    } else {
-//      turnRobotRight(abs(angleToObstacle))
-      turnGunRight(abs(angleToObstacle))
-    }
-    
-    
-  }
-  
-//  override func hitWall(hitDirection: RobotWallHitDirection, hitAngle: CGFloat) {
-//    if hitAngle >= 0 {
-//      turnRobotLeft(Int(abs(hitAngle)))
-//    } else {
-//      turnRobotRight(Int(abs(hitAngle)))
-//    }
-//    
-//    // leave wall
-//    moveAhead(20)
-//  }
 }
-
-//
