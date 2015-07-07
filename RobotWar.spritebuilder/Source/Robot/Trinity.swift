@@ -85,6 +85,8 @@ class Trinity: Robot {
   }
   
   func search() {
+    
+    
 //    if enemyPositions != nil {
       var xAverage: CGFloat = 0
       var yAverage: CGFloat = 0
