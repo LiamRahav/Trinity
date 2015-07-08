@@ -2,25 +2,9 @@
 import Foundation
 
 class Trinity: Robot {
-    
-    var isRight : Bool = true
-
+  var shootCounter = 0
   
   override func run() {
-    
-
-    if position().x > arenaDimensions().width/2
-    {
-        isRight = true
-    }
-    else
-    {
-        isRight = false
-    }
-    
-    
-    
-    
     let middleHeightOfArena = arenaDimensions().height / 2
     let accuracy: CGFloat = 10
     var currentRobotHeight = position().y
@@ -33,13 +17,10 @@ class Trinity: Robot {
     // LOOP AFTER REACHING MIDDLE
     while true {
         moveAhead(Int(middleWidthOfArena - 90))
-        turnRobotRight(Int(abs(angleBetweenHeadingDirectionAndWorldPosition(CGPoint(x: middleWidthOfArena, y: middleHeightOfArena)))))
+        turnRobotRight(180)
         moveAhead(Int(middleWidthOfArena - 90))
-        turnRobotLeft(Int(abs(angleBetweenHeadingDirectionAndWorldPosition(CGPoint(x: middleWidthOfArena, y: middleHeightOfArena)))))
-//        turnAroundRobot()
-        if position().y < middleHeightOfArena - 10 || position().y > middleHeightOfArena + 10{
-            moveToMiddle(middleHeightOfArena, accuracy: accuracy, currentRobotHeight: position().y)
-        }      }
+        turnRobotLeft(180)
+    }
   }
   
   func moveToMiddle(middleOfArena: CGFloat, accuracy: CGFloat, currentRobotHeight: CGFloat ) {
@@ -75,33 +56,9 @@ class Trinity: Robot {
     }
 
   }
-    
-//    func turnAroundRobot()
-//    {
-//        if isRight == false
-//        {
-//        let Wall = CGPoint(x: 0, y: Int(arenaDimensions().height/2))
-//        let myAngle = angleBetweenHeadingDirectionAndWorldPosition(Wall)
-//        turnRobotLeft(abs(Int(myAngle)))
-//        let distanceNeeded = position().x
-//        moveAhead(abs(Int(distanceNeeded - 90)))
-//        }
-//        else if isRight == true
-//        {
-//            
-//            
-//        let Wall = CGPoint(x: arenaDimensions().width, y: arenaDimensions().height/2)
-//        let myAngle = angleBetweenHeadingDirectionAndWorldPosition(Wall)
-//        turnRobotLeft(abs(Int(myAngle)))
-//        let distanceNeeded = arenaDimensions().width - position().x
-//        moveAhead(abs(Int(distanceNeeded - 90)))
-//            
-//        }
-//
-//    }
   
   override func scannedRobot(robot: Robot!, atPosition position: CGPoint) {
-    
+    shootCounter++
     println("position = \(position)")
     cancelActiveAction()
     let angleToEnemy = angleBetweenGunHeadingDirectionAndWorldPosition(position)
@@ -110,7 +67,15 @@ class Trinity: Robot {
     } else {
       turnGunRight(Int(angleToEnemy))
     }
-    shoot()
+    
+    if shootCounter % 3 == 0 {
+      shoot()
+      if shootCounter > 81 {
+        shootCounter = 0
+      }
+    }
+    
+    
   }
   
   override func gotHit() {
