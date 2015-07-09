@@ -14,13 +14,38 @@ class Trinity: Robot {
     let middleWidthOfArena = arenaDimensions().width
     let sideOfRobot = position().x
     
-    // LOOP AFTER REACHING MIDDLE
-    while true {
+    let center = CGPoint(x: 0, y: Int(arenaDimensions().height/2))
+    let robotAngleToCenter = angleBetweenHeadingDirectionAndWorldPosition(center)
+    
+    do {
         moveAhead(Int(middleWidthOfArena - 90))
         turnRobotRight(180)
         moveAhead(Int(middleWidthOfArena - 90))
         turnRobotLeft(180)
+        println("Okay")
+        
+    } while (robotAngleToCenter == 0)
+    
+    if robotAngleToCenter != 0
+    {
+        //here we are
+        println("changing")
+        turnRobotRight(abs(Int(robotAngleToCenter)))
+        println(robotAngleToCenter)
     }
+    
+    do{
+    //lalalalala
+    println("\n lalalalal \n")
+    } while (robotAngleToCenter == 0)
+    
+//    // LOOP AFTER REACHING MIDDLE
+//    while true {
+//        moveAhead(Int(middleWidthOfArena - 90))
+//        turnRobotRight(180)
+//        moveAhead(Int(middleWidthOfArena - 90))
+//        turnRobotLeft(180)
+//    }
   }
   
   func moveToMiddle(middleOfArena: CGFloat, accuracy: CGFloat, currentRobotHeight: CGFloat ) {
@@ -59,7 +84,7 @@ class Trinity: Robot {
   
   override func scannedRobot(robot: Robot!, atPosition position: CGPoint) {
     shootCounter++
-    println("position = \(position)")
+  //  println("position = \(position)")
     cancelActiveAction()
     let angleToEnemy = angleBetweenGunHeadingDirectionAndWorldPosition(position)
     if angleToEnemy < 0 {
