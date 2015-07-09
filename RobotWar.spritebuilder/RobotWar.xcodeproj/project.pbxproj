@@ -42,6 +42,7 @@
 		B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3D17B978D7009739AE /* Foundation.framework */; };
 		B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3F17B978D7009739AE /* CoreGraphics.framework */; };
 		B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
+		B85620261B4EACE200780CA3 /* TestVot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85620251B4EACE200780CA3 /* TestVot.swift */; };
 		BC0F77681B45AD1E0043EEA4 /* SimpleRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F77671B45AD1E0043EEA4 /* SimpleRobot.swift */; };
 		BC2FCAF81B45C6FC00A7837D /* TurretRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCAF71B45C6FC00A7837D /* TurretRobot.swift */; };
 		BC2FCAFD1B45F42000A7837D /* CamperRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCAFC1B45F42000A7837D /* CamperRobot.swift */; };
@@ -152,6 +153,7 @@
 		B77F1B3F17B978D7009739AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B77F1B4117B978D7009739AE /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libObjectiveChipmunk.a; path = "../libs/cocos2d-iphone/external/Chipmunk/xcode/build/Debug-iphoneos/libObjectiveChipmunk.a"; sourceTree = "<group>"; };
+		B85620251B4EACE200780CA3 /* TestVot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestVot.swift; path = ../../TestVot.swift; sourceTree = "<group>"; };
 		BC0F77661B45AD1D0043EEA4 /* RobotWar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "RobotWar-Bridging-Header.h"; path = "Source/Robot/RobotWar-Bridging-Header.h"; sourceTree = "<group>"; };
 		BC0F77671B45AD1E0043EEA4 /* SimpleRobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleRobot.swift; sourceTree = "<group>"; };
 		BC2FCAF71B45C6FC00A7837D /* TurretRobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurretRobot.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				BC0F77671B45AD1E0043EEA4 /* SimpleRobot.swift */,
 				BC2FCAFC1B45F42000A7837D /* CamperRobot.swift */,
 				FAE1AD831B4AD6A400349E8A /* AdvancedRobot.swift */,
+				B85620251B4EACE200780CA3 /* TestVot.swift */,
 			);
 			name = Robots;
 			path = Source/Robot;
@@ -458,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				629FCFF4193E71C300896E8C /* GameOverScene.m in Sources */,
+				B85620261B4EACE200780CA3 /* TestVot.swift in Sources */,
 				650785D1196A20290022192D /* TournamentWonScene.m in Sources */,
 				BC2FCAFD1B45F42000A7837D /* CamperRobot.swift in Sources */,
 				6244629A1937DDD300895F2D /* Robot.m in Sources */,

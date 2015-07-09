@@ -6,7 +6,7 @@ class Trinity: Robot {
   
   override func run() {
     let middleHeightOfArena = arenaDimensions().height / 2
-    let accuracy: CGFloat = 10
+    let accuracy: CGFloat = 0
     var currentRobotHeight = position().y
     
     // MOVE TO MIDDLE ON START
@@ -14,28 +14,43 @@ class Trinity: Robot {
     let middleWidthOfArena = arenaDimensions().width
     let sideOfRobot = position().x
     
-    let center = CGPoint(x: 0, y: Int(arenaDimensions().height/2))
-    let robotAngleToCenter = angleBetweenHeadingDirectionAndWorldPosition(center)
+    let center = CGPoint(x: Int(arenaDimensions().width), y: Int(arenaDimensions().height/2))
+    let robotAngleToCenter = angleBetweenGunHeadingDirectionAndWorldPosition(center)
+    
+    
+
+    
+
     
     do {
+        println("Okay")
+        println("middle: \(middleHeightOfArena)")
+
+    
         moveAhead(Int(middleWidthOfArena - 90))
         turnRobotRight(180)
         moveAhead(Int(middleWidthOfArena - 90))
         turnRobotLeft(180)
-        println("Okay")
+        println("rHeight : \(currentRobotHeight)")
+
         
-    } while (robotAngleToCenter == 0)
+    } while position().y == middleHeightOfArena
     
-    if robotAngleToCenter != 0
-    {
-        //here we are
-        println("changing")
-        turnRobotRight(abs(Int(robotAngleToCenter)))
-        println(robotAngleToCenter)
-    }
+    
+//        if robotAngleToCenter != 0
+//    {
+//        //here we are
+//        println("changing")
+//        turnRobotRight(abs(Int(robotAngleToCenter)))
+//        let distancetotravel = middleHeightOfArena - position().y
+//        moveAhead(Int(abs(distancetotravel)))
+//        println(robotAngleToCenter)
+//    }
     
     do{
     //lalalalala
+        println("rHeight : \(currentRobotHeight)")
+
     println("\n lalalalal \n")
     } while (robotAngleToCenter == 0)
     
