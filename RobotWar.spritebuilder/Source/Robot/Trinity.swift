@@ -5,6 +5,8 @@ class Trinity: Robot {
   var shootCounter = 0
   
   override func run() {
+    
+    
     let middleHeightOfArena = arenaDimensions().height / 2
     let accuracy: CGFloat = 0
     var currentRobotHeight = position().y
@@ -49,7 +51,7 @@ class Trinity: Robot {
     
     do{
     //lalalalala
-        println("rHeight : \(currentRobotHeight)")
+        println("rHeight : \(position().y)")
 
     println("\n lalalalal \n")
     } while (robotAngleToCenter == 0)
